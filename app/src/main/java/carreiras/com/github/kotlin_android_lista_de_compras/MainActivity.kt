@@ -3,6 +3,7 @@ package carreiras.com.github.kotlin_android_lista_de_compras
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.RecyclerView
@@ -18,6 +19,8 @@ import androidx.recyclerview.widget.RecyclerView
  */
 class MainActivity : AppCompatActivity() {
 
+    val viewModel: ItemsViewModel by viewModels()
+
     /**
      * Método onCreate é chamado quando a atividade é iniciada.
      * Este método é responsável por inicializar a interface do usuário e configurar os eventos de interação do usuário.
@@ -27,6 +30,7 @@ class MainActivity : AppCompatActivity() {
      *                           Se a atividade está sendo recriada a partir de um estado anteriormente salvo, este é o estado.
      */
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
 
         /**
@@ -75,20 +79,17 @@ class MainActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            /**
-             * Cria um novo item e o adiciona ao ItemsAdapter.
-             * O item é criado com o texto do campo de texto e uma função de
-             * remoção que remove o item do ItemsAdapter.
-             */
-            val item = ItemModel(
-                name = editText.text.toString(),
-                onRemove = {
-                    itemsAdapter.removeItem(it)
-                }
-            )
-
-            itemsAdapter.addItem(item)
+            viewModel.addItem(editText.text.toString())
             editText.text.clear()
+
+        }
+
+        /**
+         * Observa as alterações na lista de itens na ViewModel.
+         * Quando a lista de itens é alterada, atualiza o ItemsAdapter com a nova lista.
+         */
+        viewModel.itemsLiveData.observe(this) {
+            items -> itemsAdapter.updateItems(items)
         }
     }
 }

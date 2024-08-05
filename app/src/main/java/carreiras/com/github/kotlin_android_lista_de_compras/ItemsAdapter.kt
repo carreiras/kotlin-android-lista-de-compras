@@ -23,7 +23,7 @@ class ItemsAdapter : RecyclerView.Adapter<ItemsAdapter.ItemViewHolder>() {
      * Lista de itens que serão exibidos no RecyclerView.
      * É uma lista mutável para permitir adições e remoções de itens.
      */
-    private val items = mutableListOf<ItemModel>()
+    private var items = listOf<ItemModel>()
 
     /**
      * Classe interna ItemViewHolder que estende RecyclerView.ViewHolder.
@@ -94,18 +94,8 @@ class ItemsAdapter : RecyclerView.Adapter<ItemsAdapter.ItemViewHolder>() {
      * @param newItem O item a ser adicionado.
      * Adiciona o item à lista de itens e chama o método notifyDataSetChanged para atualizar a visualização.
      */
-    fun addItem(newItem: ItemModel) {
-        items.add(newItem)
-        notifyDataSetChanged()
-    }
-
-    /**
-     * Método que remove um item da lista e notifica o RecyclerView que os dados foram alterados.
-     * @param item O item a ser removido.
-     * Remove o item da lista de itens e chama o método notifyDataSetChanged para atualizar a visualização.
-     */
-    fun removeItem(item: ItemModel) {
-        items.remove(item)
+    fun updateItems(newItems: List<ItemModel>) {
+        items = newItems
         notifyDataSetChanged()
     }
 }
