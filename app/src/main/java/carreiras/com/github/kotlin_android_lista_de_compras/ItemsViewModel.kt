@@ -45,8 +45,14 @@ class ItemsViewModel : ViewModel() {
             onRemove = ::removeItem
         )
 
-        items.add(item)
-        itemsLiveData.value = items
+        /**
+         * Observa as alterações na lista de itens na ViewModel.
+         * Quando a lista de itens é alterada, atualiza o ItemsAdapter com a nova lista.
+         */
+        if (!items.contains(item)) {
+            items.add(item)
+            itemsLiveData.value = items
+        }
     }
 
     /**
