@@ -1,6 +1,8 @@
 package carreiras.com.github.kotlin_android_lista_de_compras
 
 import android.os.Bundle
+import android.widget.Button
+import android.widget.EditText
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
@@ -28,5 +30,14 @@ class MainActivity : AppCompatActivity() {
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerView)
         val itemsAdapter = ItemsAdapter()
         recyclerView.adapter = itemsAdapter
+
+        val button = findViewById<Button>(R.id.button)
+        val editText = findViewById<EditText>(R.id.editText)
+
+        button.setOnClickListener {
+            val item = ItemModel(editText.text.toString())
+
+            itemsAdapter.addItem(item)
+        }
     }
 }
