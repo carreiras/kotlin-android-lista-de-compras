@@ -35,6 +35,11 @@ class MainActivity : AppCompatActivity() {
         val editText = findViewById<EditText>(R.id.editText)
 
         button.setOnClickListener {
+            if (editText.text.isEmpty()) {
+                editText.error = "Preencha um valor"
+                return@setOnClickListener
+            }
+
             val item = ItemModel(editText.text.toString())
 
             itemsAdapter.addItem(item)
