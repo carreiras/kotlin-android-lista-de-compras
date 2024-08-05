@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 
 class ItemsAdapter : RecyclerView.Adapter<ItemsAdapter.ItemViewHolder>() {
 
+    private val items = mutableListOf<ItemModel>()
 
     class ItemViewHolder(view: View) : RecyclerView.ViewHolder(view) {
     }
@@ -16,11 +17,14 @@ class ItemsAdapter : RecyclerView.Adapter<ItemsAdapter.ItemViewHolder>() {
         return ItemViewHolder(view)
     }
 
-    override fun getItemCount(): Int {
-        TODO("Not yet implemented")
-    }
+    override fun getItemCount(): Int = items.size
 
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         TODO("Not yet implemented")
+    }
+
+    fun addItem(newItem: ItemModel) {
+        items.add(newItem)
+        notifyDataSetChanged()
     }
 }
