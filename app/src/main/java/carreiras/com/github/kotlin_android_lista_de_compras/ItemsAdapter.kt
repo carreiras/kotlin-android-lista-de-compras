@@ -3,6 +3,7 @@ package carreiras.com.github.kotlin_android_lista_de_compras
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageButton
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
@@ -13,9 +14,14 @@ class ItemsAdapter : RecyclerView.Adapter<ItemsAdapter.ItemViewHolder>() {
     class ItemViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
         val textView = view.findViewById<TextView>(R.id.textViewItem)
+        val button = view.findViewById<ImageButton>(R.id.imageButton)
 
         fun bind(item: ItemModel) {
             textView.text = item.name
+
+            button.setOnClickListener {
+                item.onRemove(item)
+            }
         }
     }
 
@@ -33,6 +39,11 @@ class ItemsAdapter : RecyclerView.Adapter<ItemsAdapter.ItemViewHolder>() {
 
     fun addItem(newItem: ItemModel) {
         items.add(newItem)
+        notifyDataSetChanged()
+    }
+
+    fun removeItem(item: ItemModel) {
+        items.remove(item)
         notifyDataSetChanged()
     }
 }
