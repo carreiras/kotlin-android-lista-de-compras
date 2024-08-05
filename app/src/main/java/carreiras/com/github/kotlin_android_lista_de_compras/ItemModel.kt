@@ -14,6 +14,7 @@ package carreiras.com.github.kotlin_android_lista_de_compras
  * @since 14/09/2021
  */
 data class ItemModel(
+    val id: Int,
     val name: String,
     val onRemove: (ItemModel) -> Unit = { _ -> }
 )
