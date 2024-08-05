@@ -43,6 +43,7 @@ class MainActivity : AppCompatActivity() {
             val item = ItemModel(editText.text.toString())
 
             itemsAdapter.addItem(item)
+            editText.text.clear()
         }
     }
 }
