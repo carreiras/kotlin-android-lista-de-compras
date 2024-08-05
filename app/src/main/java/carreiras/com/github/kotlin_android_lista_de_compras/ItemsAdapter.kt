@@ -1,5 +1,6 @@
 package carreiras.com.github.kotlin_android_lista_de_compras
 
+import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -11,7 +12,8 @@ class ItemsAdapter : RecyclerView.Adapter<ItemsAdapter.ItemViewHolder>() {
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
-        TODO("Not yet implemented")
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_layout, parent, false)
+        return ItemViewHolder(view)
     }
 
     override fun getItemCount(): Int {
