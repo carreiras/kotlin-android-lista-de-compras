@@ -13,6 +13,8 @@ import carreiras.com.github.listadecompras.model.ItemModel
  * Uma classe Adapter que estende RecyclerView.Adapter. Esta classe é responsável por fornecer os dados e criar cada item na lista.
  * Ela mantém uma lista de ItemModel e um callback para quando um item é removido.
  *
+ * @property onItemRemoved Callback que é chamado quando um item é removido.
+ * @property items Lista de itens que serão exibidos no RecyclerView.
  * @author Ewerton Carreira
  * @version 1.0
  * @since 2023-03-01
@@ -26,6 +28,9 @@ class ItemsAdapter(private val onItemRemoved: (ItemModel) -> Unit) :
     /**
      * Uma classe interna ViewHolder que estende RecyclerView.ViewHolder.
      * Esta classe é responsável por manter as referências para as views de cada item e preencher os dados.
+     *
+     * @property textView Referência para a view TextView de cada item.
+     * @property button Referência para a view ImageButton de cada item.
      */
     inner class ItemViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
@@ -50,6 +55,10 @@ class ItemsAdapter(private val onItemRemoved: (ItemModel) -> Unit) :
     /**
      * Método chamado quando o RecyclerView precisa de um novo ViewHolder.
      * Este método infla o layout do item e cria um novo ViewHolder.
+     *
+     * @param parent O ViewGroup no qual o novo View será adicionado após ser vinculado a uma posição de adaptador.
+     * @param viewType O tipo de view do novo View.
+     * @return Um novo ViewHolder que contém uma View do tipo de view fornecido.
      */
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
         // Infla o layout do item.
@@ -65,20 +74,28 @@ class ItemsAdapter(private val onItemRemoved: (ItemModel) -> Unit) :
      */
     override fun getItemCount(): Int = items.size
 
+    /**
+     * Método chamado pelo RecyclerView para exibir os dados na posição especificada.
+     * Este método atualiza o conteúdo do ViewHolder para refletir o item na posição dada.
+     *
+     * @param holder O ViewHolder que deve ser atualizado para representar o conteúdo do item na posição fornecida no conjunto de dados.
+     * @param position A posição do item dentro do conjunto de dados do adaptador.
+     */
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         val item = items[position]
         holder.bind(item)
     }
 
     /**
-     * Método chamado para exibir os dados em um ViewHolder.
-     * @param holder O ViewHolder que terá seus dados preenchidos.
-     * @param position A posição do item na lista.
+     * Método chamado para atualizar a lista de itens que serão exibidos.
+     * Este método atualiza a lista de itens e notifica o RecyclerView que os dados mudaram.
+     *
+     * @param newItems A nova lista de itens que serão exibidos.
      */
     fun updateItems(newItems: List<ItemModel>) {
-        // Obtém o item na posição especificada.
+        // Atualiza a lista de itens.
         items = newItems
-        // Preenche os dados no ViewHolder.
+        // Notifica o RecyclerView que os dados mudaram.
         notifyDataSetChanged()
     }
 }
