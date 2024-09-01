@@ -1,4 +1,4 @@
-package carreiras.com.github.listadecompras
+package carreiras.com.github.listadecompras.model
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

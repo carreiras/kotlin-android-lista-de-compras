@@ -1,10 +1,13 @@
-package carreiras.com.github.listadecompras
+package carreiras.com.github.listadecompras.viewmodel
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
 import androidx.room.Room
+import carreiras.com.github.listadecompras.data.ItemDao
+import carreiras.com.github.listadecompras.data.ItemDatabase
+import carreiras.com.github.listadecompras.model.ItemModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 

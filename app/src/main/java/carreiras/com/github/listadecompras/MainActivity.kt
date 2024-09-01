@@ -8,6 +8,9 @@ import androidx.appcompat.widget.Toolbar
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
 import carreiras.com.github.kotlin_android_lista_de_compras.R
+import carreiras.com.github.listadecompras.viewmodel.ItemsAdapter
+import carreiras.com.github.listadecompras.viewmodel.ItemsViewModel
+import carreiras.com.github.listadecompras.viewmodel.ItemsViewModelFactory
 
 class MainActivity : AppCompatActivity() {
 
