@@ -22,7 +22,6 @@ data class ItemModel(
      * A propriedade autoGenerate é definida como true, o que significa que o Room irá gerar automaticamente um valor único para cada novo item.
      */
     @PrimaryKey(autoGenerate = true)    // Anotação que indica que este campo é a chave primária da tabela.
-
     val id: Int = 0,    // O valor padrão é 0, mas será substituído pelo valor gerado automaticamente pelo Room.
 
     /**
