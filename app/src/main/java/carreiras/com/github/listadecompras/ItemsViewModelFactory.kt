@@ -1,4 +1,4 @@
-package carreiras.com.github.kotlin_android_lista_de_compras
+package carreiras.com.github.listadecompras
 
 import android.app.Application
 import androidx.lifecycle.ViewModel

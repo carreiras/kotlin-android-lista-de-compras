@@ -1,4 +1,4 @@
-package carreiras.com.github.kotlin_android_lista_de_compras.ui.theme
+package carreiras.com.github.listadecompras.ui.theme
 
 import android.app.Activity
 import android.os.Build

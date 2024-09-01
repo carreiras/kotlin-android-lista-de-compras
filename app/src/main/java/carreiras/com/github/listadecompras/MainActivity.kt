@@ -1,4 +1,4 @@
-package carreiras.com.github.kotlin_android_lista_de_compras
+package carreiras.com.github.listadecompras
 
 import android.os.Bundle
 import android.widget.Button
@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
+import carreiras.com.github.kotlin_android_lista_de_compras.R
 
 class MainActivity : AppCompatActivity() {
 

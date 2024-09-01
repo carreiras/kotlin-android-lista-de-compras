@@ -1,4 +1,4 @@
-package carreiras.com.github.kotlin_android_lista_de_compras
+package carreiras.com.github.listadecompras
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import carreiras.com.github.kotlin_android_lista_de_compras.R
 
 class ItemsAdapter(private val onItemRemoved: (ItemModel) -> Unit) :
     RecyclerView.Adapter<ItemsAdapter.ItemViewHolder>() {
