@@ -13,9 +13,9 @@ import carreiras.com.github.listadecompras.viewmodel.ItemsViewModel
 import carreiras.com.github.listadecompras.viewmodel.ItemsViewModelFactory
 
 /**
- * A atividade principal da aplicação.
- * Esta atividade é responsável por exibir a lista de itens e fornecer uma interface para adicionar novos itens à lista.
- * A atividade usa um `ItemsViewModel` para interagir com o banco de dados.
+ * A activity principal da aplicação.
+ * Esta activity é responsável por exibir a lista de itens e fornecer uma interface para adicionar novos itens à lista.
+ * A activity usa um `ItemsViewModel` para interagir com o banco de dados.
  *
  * @property viewModel O ViewModel usado para interagir com o banco de dados.
  * @author Ewerton Carreira
@@ -28,18 +28,18 @@ class MainActivity : AppCompatActivity() {
     private lateinit var viewModel: ItemsViewModel
 
     /**
-     * Chamado quando a atividade é criada.
+     * Chamado quando a activity é criada.
      * Este método configura a interface do usuário e inicializa o ViewModel.
      *
-     * @param savedInstanceState Se a atividade está sendo recriada a partir de um estado salvo, este é o estado.
+     * @param savedInstanceState Se a activity está sendo recriada a partir de um estado salvo, este é o estado.
      */
     override fun onCreate(savedInstanceState: Bundle?) {
-        // Chama o método onCreate da superclasse para completar a criação da atividade.
+        // Chama o método onCreate da superclasse para completar a criação da activity.
         super.onCreate(savedInstanceState)
-        // Define o layout da atividade.
+        // Define o layout da activity.
         setContentView(R.layout.activity_main)
 
-        // Encontra a barra de ferramentas pelo seu ID e a define como a barra de ação para esta atividade.
+        // Encontra a barra de ferramentas pelo seu ID e a define como a barra de ação para esta activity.
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
         // Define o título da barra de ação.
